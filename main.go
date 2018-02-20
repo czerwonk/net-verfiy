@@ -24,7 +24,7 @@ type IfaceDefinition struct {
 const version = "0.1"
 
 func main() {
-	filePath := flag.String("file", "definition.json", "JSON file containing the expected network definition")
+	filePath := flag.String("file", "net-definition.json", "JSON file containing the expected network definition")
 	showVersion := flag.Bool("version", false, "Prints version info")
 	flag.Parse()
 
