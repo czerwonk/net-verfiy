@@ -49,7 +49,7 @@ func printVersion() {
 func run(file string) error {
 	f, err := os.Open(file)
 	if err != nil {
-		return fmt.Errorf("could not open file: %v", err)
+		return fmt.Errorf("could not open file. %v", err)
 	}
 	defer f.Close()
 
@@ -64,13 +64,13 @@ func run(file string) error {
 func loadDefinition(reader io.Reader) (*NetDefinition, error) {
 	b, err := ioutil.ReadAll(reader)
 	if err != nil {
-		return nil, fmt.Errorf("can not read definition: %v", err)
+		return nil, fmt.Errorf("could not read definition. %v", err)
 	}
 
 	d := &NetDefinition{}
 	err = json.Unmarshal(b, d)
 	if err != nil {
-		return nil, fmt.Errorf("can not parse definition: %v", err)
+		return nil, fmt.Errorf("could not parse definition. %v", err)
 	}
 
 	return d, nil
@@ -90,7 +90,7 @@ func verifyDefinition(d *NetDefinition) error {
 func verifyInterface(iface *IfaceDefinition) error {
 	i, err := net.InterfaceByName(iface.Name)
 	if err != nil {
-		return err
+		return fmt.Errorf("%v (%s)", iface.Name, err)
 	}
 
 	addrs, err := i.Addrs()
