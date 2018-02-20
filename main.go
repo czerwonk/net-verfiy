@@ -95,7 +95,7 @@ func verifyInterface(iface *IfaceDefinition) error {
 
 	addrs, err := i.Addrs()
 	if err != nil {
-		return err
+		return fmt.Errorf("could not get addresses for interface %s. %v", iface.Name, err)
 	}
 
 	for _, expected := range iface.Addresses {
