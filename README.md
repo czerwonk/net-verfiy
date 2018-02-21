@@ -20,4 +20,4 @@ net-verify -file my-definition.json
 ```
 
 ## License
-(c) Daniel Czerwonk, 2017. Licensed under [MIT](LICENSE) license.
+(c) Daniel Czerwonk, 2018. Licensed under [MIT](LICENSE) license.
